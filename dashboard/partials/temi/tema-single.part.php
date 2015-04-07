@@ -1,5 +1,5 @@
 <?php
-$class = [$tema->exists() ? 'active' : 'inactive'];
+$class = array($tema->exists() ? 'active' : 'inactive');
 if($update) $class[] = 'update';
 ?>
 <tr class="<?= implode(' ', $class) ?>">

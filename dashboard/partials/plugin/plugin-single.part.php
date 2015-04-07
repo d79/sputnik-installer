@@ -1,5 +1,5 @@
 <?php
-$class = [$esiste ? 'active' : 'inactive'];
+$class = array($esiste ? 'active' : 'inactive');
 if($update) $class[] = 'update';
 ?>
 <tr class="<?= implode(' ', $class) ?>">
