@@ -11,6 +11,6 @@
 
 <?php if(version_compare($p->version, $p->maxVersion, '<')): ?>
 
-	<p><strong>Versione <?= $p->maxVersion ?> disponibile con una ulteriore licenza</strong></p>
+	<p><strong>Versione <?= $p->maxVersion ?> disponibile con una differente licenza</strong></p>
 
 <?php endif; ?>
