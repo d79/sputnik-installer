@@ -73,6 +73,25 @@ function installa_tema ()
 } // installa_tema
 
 function set_update_checker() {
+	
+	loop_temi( function( $slug ) {
+		new ThemeUpdateChecker($slug, SSI()->buildUrlQuery('temi', 'list', $slug));
+	} );
+
+} // set_update_checker
+
+function check_now() {
+
+	loop_temi( function( $slug, $wp_theme, $temi ) {
+		if(version_compare($wp_theme->get( 'Version' ), $temi[$slug]->version, '<')) {
+			$TUC = new ThemeUpdateChecker($slug, SSI()->buildUrlQuery('temi', 'list', $slug));
+			$TUC->checkForUpdates();
+		}
+	} );
+
+} // check_now
+
+function loop_temi( $callback ) {
 
 	$temi = get_option( SSI()->prefix.'temi', false );
 
@@ -81,10 +100,10 @@ function set_update_checker() {
 	$temi = (array) $temi;
 	if(!empty($temi))
 		foreach($temi as $slug => $tema) {
-			$installato = wp_get_theme($slug);
-			if(!$installato->exists())
+			$wp_theme = wp_get_theme($slug);
+			if(!$wp_theme->exists())
 				break;
-			new ThemeUpdateChecker($slug, SSI()->buildUrlQuery('temi', 'list', $slug));
+			$callback( $slug, $wp_theme, $temi );
 		}
 
-} // set_update_checker
+} // loop_temi

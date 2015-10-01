@@ -3,7 +3,7 @@
 Plugin Name: Sputnik Installer
 Plugin URI: https://github.com/d79/sputnik-installer
 Description: Gestione installazione e aggiornamento temi e plugin Wordpress di Spazio Sputnik
-Version: 0.1.3
+Version: 0.1.4
 Author: Dario Candelù
 Author URI: http://www.spaziosputnik.it
 Text Domain: sputnik-installer
@@ -64,6 +64,7 @@ class Sputnik_Installer
 		$installed    = $this->pluginsInstalled($plugins);
 		$plugins_path = $this->pluginsDir;
 		include plugin_dir_path( __FILE__ ).'dashboard/page.php';
+		Temi\check_now();
 	}
 
 	function link2settings( $links ) {
