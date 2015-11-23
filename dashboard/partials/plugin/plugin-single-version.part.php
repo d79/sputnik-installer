@@ -1,16 +1,16 @@
 <?php if( $esiste ): ?>
 
-	Versione <?= $version ?>
+	Versione <?php echo $version; ?>
 
 <?php else: ?>
 
-	Versione <?= $p->version ?> disponibile
+	Versione <?php echo $p->version; ?> disponibile
 
 <?php endif; ?>
 
 
 <?php if(version_compare($p->version, $p->maxVersion, '<')): ?>
 
-	<p><strong>Versione <?= $p->maxVersion ?> disponibile con una differente licenza</strong></p>
+	<p><strong>Versione <?php echo $p->maxVersion; ?> disponibile con una differente licenza</strong></p>
 
 <?php endif; ?>

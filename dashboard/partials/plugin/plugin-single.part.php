@@ -2,15 +2,15 @@
 $class = array($esiste ? 'active' : 'inactive');
 if($update) $class[] = 'update';
 ?>
-<tr class="<?= implode(' ', $class) ?>">
+<tr class="<?php echo implode(' ', $class); ?>">
 	<th scope="row" class="check-column"></th>
 	<td class="plugin-title">
 
-		<strong><?= $p->name ?></strong>
+		<strong><?php echo $p->name; ?></strong>
 
 		<?php if(isset($p->details_url)): ?>
 		<div class="row-actions visible">
-			<a href="<?= $p->details_url ?>?TB_iframe=true&amp;width=800&amp;height=550" title="<?= $p->name ?>" class="edit thickbox">Dettagli plugin</a>
+			<a href="<?php echo $p->details_url; ?>?TB_iframe=true&amp;width=800&amp;height=550" title="<?php echo $p->name; ?>" class="edit thickbox">Dettagli plugin</a>
 		</div>
 		<?php endif; ?>
 

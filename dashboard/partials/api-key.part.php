@@ -7,7 +7,7 @@
 				<form action="<?php menu_page_url( 'sputnik-installer' ) ?>" method="post">
 					<?php wp_nonce_field( 'ssi-delete-key' ); ?>
 					<p>
-						<code style="font-size:1.1rem;font-family=monospace"><?= $key ?></code>
+						<code style="font-size:1.1rem;font-family=monospace"><?php echo $key; ?></code>
 						<?php submit_button( 'Rimuovi chiave', 'delete', 'do-ssi-delete-key', false ); ?>
 					</p>
 				</form>
