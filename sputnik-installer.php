@@ -3,7 +3,7 @@
 Plugin Name: Sputnik Installer
 Plugin URI: https://github.com/d79/sputnik-installer
 Description: Gestione installazione e aggiornamento temi e plugin Wordpress di Spazio Sputnik
-Version: 0.1.5
+Version: 0.1.6
 Author: Dario Candelù
 Author URI: http://www.spaziosputnik.it
 Text Domain: sputnik-installer
@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) { exit; /* Exit if accessed directly */ }
 
 class Sputnik_Installer
 {
-	
+
 	private $key;
 	private $apiUrl = 'http://api-wp.spaziosputnik.it/';
 	public $prefix = 'sputnik-installer-';
@@ -121,8 +121,8 @@ class Sputnik_Installer
 	/**
 	 * Filtra i plugin disponibili e restituisce quelli
 	 * installati nella forma ['slug' => 'path to file']
-	 * 
-	 * @param array $plugins 
+	 *
+	 * @param array $plugins
 	 * @return array
 	 */
 	function pluginsInstalled ( $plugins ) {
@@ -173,18 +173,16 @@ class Sputnik_Installer
 	protected function __construct()	{}
 
 	/**
-	* Private clone method to prevent cloning of the instance of the
-	* *Singleton* instance.
+	* Singletons should not be cloneable.
 	* @return void
 	*/
-	private function __clone() {}
+	protected function __clone() {}
 
 	/**
-	* Private unserialize method to prevent unserializing of the *Singleton*
-	* instance.
+	* Singletons should not be restorable from strings.
 	* @return void
 	*/
-	private function __wakeup() {}
+	public function __wakeup() {}
 
 } // Sputnik_Installer
 
